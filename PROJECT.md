@@ -22,11 +22,15 @@
 
 ## Infrastructure and tools
 
-### Initial changes
+### Before getting started
 
 I like using nvm to ensure everyone uses the same version of node. Initially I added a .nvmrc version with a version that seemed roughly in sync with how the repo was created (v16.20.2, based on lockfile version. This is `lts/gallium`).
 
 There was also a linter warning in App.tsx, and a runtime warning about missing `@babel/plugin-proposal-private-property-in-object` as a dev dependency.
+
+### Tailwind and flowbite
+
+Before I started with raw html elements, I thought I should drop in a component library, so I could include it from the start. I've heard good things about tailwind but never had a chance to really try it out, I landed on [flowbite](https://flowbite.com/react/) from Figma as a set of tools to try out.
 
 ## Project readiness checklist
 
