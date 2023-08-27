@@ -34,7 +34,9 @@ export const selectTotalAnimalWeight = (state: RootState) =>
   (selectNumberOfAnimals(state) || 0) * (selectAvgLiveweight(state) || 0);
 export const selectAnimalEmissions = (state: RootState) =>
   selectTotalAnimalWeight(state) * 10;
-export const selectNumberOfAnimalsValid = (state: RootState) => {
+export const selectNumberOfAnimalsValid = (
+  state: RootState
+): ValidationResult => {
   if (selectNumberOfAnimals(state) === undefined) {
     return { isValid: false, reason: 'Please enter a valid number' };
   } else {

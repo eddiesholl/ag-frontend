@@ -7,6 +7,8 @@ import {
 } from '../features/beefSlice';
 import NumberCard from './numberCard';
 import { useAppSelector } from '../hooks';
+import BackLink from './backLink';
+import { allValid } from '../utils/validation';
 
 const Beef = () => {
   const numberOfAnimalsValidationResult = useAppSelector(
@@ -16,7 +18,12 @@ const Beef = () => {
 
   return (
     <div>
-      <Link to="..">Back</Link>
+      <BackLink
+        isValid={allValid([
+          numberOfAnimalsValidationResult,
+          liveweightValidationResult,
+        ])}
+      />
       <h4>Enter Beef info:</h4>
       <form action="#">
         <div className="grid gap-4 grid-cols-2">
