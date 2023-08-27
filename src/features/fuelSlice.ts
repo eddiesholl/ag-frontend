@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import type { RootState } from '../store';
+import { stringToFloat } from '../utils/parse';
 
 interface FuelState {
   petrolYearlyUse?: number;
@@ -14,10 +15,10 @@ export const fuelSlice = createSlice({
   initialState,
   reducers: {
     setPetrolYearlyUse: (state, action: PayloadAction<string>) => {
-      state.petrolYearlyUse = Number.parseFloat(action.payload);
+      state.petrolYearlyUse = stringToFloat(action.payload);
     },
     setDieselYearlyUse: (state, action: PayloadAction<string>) => {
-      state.dieselYearlyUse = Number.parseFloat(action.payload);
+      state.dieselYearlyUse = stringToFloat(action.payload);
     },
   },
 });
