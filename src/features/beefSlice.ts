@@ -28,5 +28,9 @@ export const selectNumberOfAnimals = (state: RootState) =>
   state.beef.numberOfAnimals;
 export const selectAvgLiveweight = (state: RootState) =>
   state.beef.avgLiveweight;
+export const selectTotalAnimalWeight = (state: RootState) =>
+  (selectNumberOfAnimals(state) || 0) * (selectAvgLiveweight(state) || 0);
+export const selectAnimalEmissions = (state: RootState) =>
+  selectTotalAnimalWeight(state) * 10;
 
 export default beefSlice.reducer;

@@ -5,13 +5,13 @@
 ### A set of input pages that the user can switch between
 
 - [x] The default view allows entering a start date and end date
-- [ ] Choose Beef view, 2 text input fields, including Back button support
-- [ ] Choose Fuel view, 2 text input fields
+- [x] Choose Beef view, 2 text input fields, including Back button support
+- [x] Choose Fuel view, 2 text input fields
 
 ### Dynamic output page that instantly updates to show the user the latest results
 
-- [ ] Results page shows raw input values
-- [ ] Results page shows annual emissions
+- [x] Results page shows raw input values
+- [x] Results page shows annual emissions
 - [ ] Output values are limited to 2 decimal places
 - [ ] Output values show a `-` when there is an error
 

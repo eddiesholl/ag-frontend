@@ -28,5 +28,8 @@ export const selectDieselYearlyUse = (state: RootState) =>
   state.fuel.dieselYearlyUse;
 export const selectPetrolYearlyUse = (state: RootState) =>
   state.fuel.petrolYearlyUse;
+export const selectFuelEmissions = (state: RootState) =>
+  (selectDieselYearlyUse(state) || 0) * 0.03 +
+  (selectPetrolYearlyUse(state) || 0) * 0.01;
 
 export default fuelSlice.reducer;
