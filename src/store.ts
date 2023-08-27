@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 import businessReducer from './features/businessSlice';
+import beefReducer from './features/beefSlice';
 
 export const store = configureStore({
   reducer: {
     business: businessReducer,
+    beef: beefReducer,
   },
 });
 
