@@ -12,7 +12,7 @@
 
 - [x] Results page shows raw input values
 - [x] Results page shows annual emissions
-- [ ] Output values are limited to 2 decimal places
+- [x] Output values are limited to 2 decimal places
 - [ ] Output values show a `-` when there is an error
 
 ### Input validation
