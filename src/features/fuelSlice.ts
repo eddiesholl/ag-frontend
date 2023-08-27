@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import type { RootState } from '../store';
 import { stringToFloat } from '../utils/parse';
+import { hasValue } from '../utils/validation';
 
 interface FuelState {
   petrolYearlyUse?: number;
@@ -32,5 +33,10 @@ export const selectPetrolYearlyUse = (state: RootState) =>
 export const selectFuelEmissions = (state: RootState) =>
   (selectDieselYearlyUse(state) || 0) * 0.03 +
   (selectPetrolYearlyUse(state) || 0) * 0.01;
+
+export const selectDieselYearlyUseValid = (state: RootState) =>
+  hasValue(selectDieselYearlyUse(state));
+export const selectPetrolYearlyUseValid = (state: RootState) =>
+  hasValue(selectPetrolYearlyUse(state));
 
 export default fuelSlice.reducer;
