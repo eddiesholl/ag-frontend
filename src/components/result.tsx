@@ -1,13 +1,13 @@
 import { formatNumber } from '../utils/format';
-import { Maybe } from '../utils/maybe';
+import { InputResult } from '../utils/result';
 
 interface ResultProps {
   label: string;
-  maybeValue: Maybe;
+  inputResult: InputResult;
 }
 
-const Result = ({ label, maybeValue }: ResultProps) => {
-  const content = maybeValue.isValid ? formatNumber(maybeValue.value) : '-';
+const Result = ({ label, inputResult }: ResultProps) => {
+  const content = inputResult.mapOr('-', formatNumber);
   return <span>{`${label}: ${content}`}</span>;
 };
 
