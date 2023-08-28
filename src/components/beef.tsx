@@ -1,36 +1,27 @@
-import {
-  selectAvgLiveweightValid,
-  selectNumberOfAnimalsValid,
-} from '../features/beefSlice';
+import { useFormState } from 'react-hook-form';
+import { get } from 'lodash';
 import NumberCard from './numberCard';
-import { useAppSelector } from '../hooks';
 import BackLink from './backLink';
-import { allValid } from '../utils/validation';
+
+const groupName = 'beef';
 
 const Beef = () => {
-  const numberOfAnimalsValidationResult = useAppSelector(
-    selectNumberOfAnimalsValid
-  );
-  const liveweightValidationResult = useAppSelector(selectAvgLiveweightValid);
+  const { errors } = useFormState({ name: groupName });
+  const isValid = get(errors, groupName) === undefined;
 
   return (
     <div>
-      <BackLink
-        isValid={allValid([
-          numberOfAnimalsValidationResult,
-          liveweightValidationResult,
-        ])}
-      />
+      <BackLink isValid={isValid} />
       <h4>Enter Beef info:</h4>
       <form action="#">
         <div className="grid gap-4 grid-cols-2">
           <NumberCard
-            groupName="beef"
+            groupName={groupName}
             fieldName="numberOfAnimals"
             label="Number of animals"
           />
           <NumberCard
-            groupName="beef"
+            groupName={groupName}
             fieldName="avgLiveweight"
             label="Average liveweight (kg)"
           />

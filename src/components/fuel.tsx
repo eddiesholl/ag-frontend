@@ -1,38 +1,27 @@
+import { useFormState } from 'react-hook-form';
+import { get } from 'lodash';
 import NumberCard from './numberCard';
-import {
-  selectDieselYearlyUseValid,
-  selectPetrolYearlyUseValid,
-} from '../features/fuelSlice';
-import { useAppSelector } from '../hooks';
 import BackLink from './backLink';
-import { allValid } from '../utils/validation';
+
+const groupName = 'fuel';
 
 const Fuel = () => {
-  const dieselYearlyUseValidationResult = useAppSelector(
-    selectDieselYearlyUseValid
-  );
-  const petrolYearlyUseValidationResult = useAppSelector(
-    selectPetrolYearlyUseValid
-  );
+  const { errors } = useFormState({ name: groupName });
+  const isValid = get(errors, groupName) === undefined;
 
   return (
     <div>
-      <BackLink
-        isValid={allValid([
-          dieselYearlyUseValidationResult,
-          petrolYearlyUseValidationResult,
-        ])}
-      />
+      <BackLink isValid={isValid} />
       <h4>Enter Fuel info:</h4>
       <form action="#">
         <div className="grid gap-4 grid-cols-2">
           <NumberCard
-            groupName="fuel"
+            groupName={groupName}
             fieldName="dieselYearlyUse"
             label="Diesel yearly use (litres)"
           />
           <NumberCard
-            groupName="fuel"
+            groupName={groupName}
             fieldName="petrolYearlyUse"
             label="Petrol yearly use (litres)"
           />
