@@ -7,8 +7,15 @@ interface NumberCardProps {
   groupName: string;
   label: string;
   type: HTMLInputTypeAttribute;
+  validate?: (value: any, formValues: any) => boolean | string;
 }
-const InputCard = ({ groupName, fieldName, label, type }: NumberCardProps) => {
+const InputCard = ({
+  groupName,
+  fieldName,
+  label,
+  type,
+  validate,
+}: NumberCardProps) => {
   const {
     register,
     formState: { errors },
@@ -45,7 +52,7 @@ const InputCard = ({ groupName, fieldName, label, type }: NumberCardProps) => {
         {label}
       </label>
       <input
-        {...register(fieldId, { required: 'A value is required' })}
+        {...register(fieldId, { required: 'A value is required', validate })}
         type={type}
         id={fieldId}
         className={inputClasses}

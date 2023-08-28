@@ -5,6 +5,18 @@ import BackLink from './backLink';
 
 const groupName = 'beef';
 
+const validateAvgLiveweight = (value: any, formValues: any) => {
+  const numberOfAnimals = parseInt(formValues[groupName]?.numberOfAnimals);
+
+  if (isFinite(numberOfAnimals) && numberOfAnimals > 0) {
+    if (!isFinite(value) || value <= 0) {
+      return 'Average liveweight must be a positive number';
+    }
+  }
+
+  return true;
+};
+
 const Beef = () => {
   const { errors } = useFormState({ name: groupName });
   const isValid = get(errors, groupName) === undefined;
@@ -26,6 +38,7 @@ const Beef = () => {
             fieldName="avgLiveweight"
             label="Average liveweight (kg)"
             type="number"
+            validate={validateAvgLiveweight}
           />
         </div>
       </form>
