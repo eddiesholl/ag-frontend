@@ -1,6 +1,6 @@
 import { useFormState } from 'react-hook-form';
 import { get } from 'lodash';
-import NumberCard from './numberCard';
+import InputCard from './inputCard';
 import BackLink from './backLink';
 
 const groupName = 'fuel';
@@ -15,15 +15,17 @@ const Fuel = () => {
       <h4>Enter Fuel info:</h4>
       <form action="#">
         <div className="grid gap-4 grid-cols-2">
-          <NumberCard
+          <InputCard
             groupName={groupName}
             fieldName="dieselYearlyUse"
             label="Diesel yearly use (litres)"
+            type="number"
           />
-          <NumberCard
+          <InputCard
             groupName={groupName}
             fieldName="petrolYearlyUse"
             label="Petrol yearly use (litres)"
+            type="number"
           />
         </div>
       </form>

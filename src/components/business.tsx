@@ -1,7 +1,7 @@
-import { setEndDate, setStartDate } from '../features/businessSlice';
 import { Link } from 'react-router-dom';
-import DateCard from './dateCard';
+import InputCard from './inputCard';
 
+const groupName = 'business';
 export const Business = () => {
   return (
     <div className="py-8 px-4 mx-auto max-w-2xl lg:py-16">
@@ -13,15 +13,17 @@ export const Business = () => {
           <span className="col-span-2 mb-4 text-xl font-bold text-gray-900 dark:text-white">
             When did these activities happen?
           </span>
-          <DateCard
+          <InputCard
+            groupName={groupName}
             fieldName="startDate"
             label="Start date"
-            changeHandler={setStartDate}
+            type="date"
           />
-          <DateCard
+          <InputCard
+            groupName={groupName}
             fieldName="endDate"
             label="End date"
-            changeHandler={setEndDate}
+            type="date"
           />
 
           <h4 className="mb-4 text-xl font-bold text-gray-900 dark:text-white col-span-2">
