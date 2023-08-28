@@ -1,6 +1,6 @@
 import { useFormState, useWatch } from 'react-hook-form';
 import Result from './result';
-import { getResult, multiplyResults } from '../utils/result';
+import { getResult, multiplyResults, sumResults } from '../utils/result';
 
 export const Results = () => {
   const { errors } = useFormState();
@@ -34,6 +34,12 @@ export const Results = () => {
   );
 
   const totalAnimalWeight = multiplyResults(numberOfAnimals, averageLiveweight);
+  const totalAnimalEmissions = totalAnimalWeight.map((t) => t * 10);
+
+  const totalFuelEmissions = sumResults(
+    dieselYearlyUse.map((d) => d * 0.03),
+    petrolYearlyUse.map((p) => p * 0.01)
+  );
 
   return (
     <div style={{ width: '50%' }}>
@@ -51,8 +57,11 @@ export const Results = () => {
           label="Total animal weight (kg)"
           inputResult={totalAnimalWeight}
         />
-        <Result label="Total fuel emissions" inputResult={petrolYearlyUse} />
-        <Result label="Total animal emissions" inputResult={petrolYearlyUse} />
+        <Result label="Total fuel emissions" inputResult={totalFuelEmissions} />
+        <Result
+          label="Total animal emissions"
+          inputResult={totalAnimalEmissions}
+        />
       </div>
     </div>
   );
