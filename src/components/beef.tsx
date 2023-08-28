@@ -1,8 +1,6 @@
 import {
   selectAvgLiveweightValid,
   selectNumberOfAnimalsValid,
-  setAvgLiveweight,
-  setNumberOfAnimals,
 } from '../features/beefSlice';
 import NumberCard from './numberCard';
 import { useAppSelector } from '../hooks';
@@ -27,18 +25,14 @@ const Beef = () => {
       <form action="#">
         <div className="grid gap-4 grid-cols-2">
           <NumberCard
+            groupName="beef"
             fieldName="numberOfAnimals"
             label="Number of animals"
-            changeHandler={setNumberOfAnimals}
-            isValid={numberOfAnimalsValidationResult.isValid}
-            validationMessage={numberOfAnimalsValidationResult.reason}
           />
           <NumberCard
+            groupName="beef"
             fieldName="avgLiveweight"
             label="Average liveweight (kg)"
-            changeHandler={setAvgLiveweight}
-            isValid={liveweightValidationResult.isValid}
-            validationMessage={liveweightValidationResult.reason}
           />
         </div>
       </form>

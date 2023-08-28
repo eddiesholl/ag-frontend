@@ -1,3 +1,4 @@
+import { useFormState, useWatch } from 'react-hook-form';
 import {
   selectAnimalEmissions,
   selectTotalAnimalWeight,
@@ -18,6 +19,9 @@ const resultDefinitions = [
 ];
 
 export const Results = () => {
+  const { errors, isValid } = useFormState();
+  const formValues = useWatch();
+
   return (
     <div style={{ width: '50%' }}>
       <h3>Results</h3>
@@ -26,6 +30,9 @@ export const Results = () => {
           <Result key={index} label={result.label} selector={result.selector} />
         ))}
       </div>
+      {JSON.stringify(formValues)}
+      {JSON.stringify(Object.keys(errors))}
+      {JSON.stringify(isValid)}
     </div>
   );
 };

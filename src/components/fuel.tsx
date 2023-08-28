@@ -2,8 +2,6 @@ import NumberCard from './numberCard';
 import {
   selectDieselYearlyUseValid,
   selectPetrolYearlyUseValid,
-  setDieselYearlyUse,
-  setPetrolYearlyUse,
 } from '../features/fuelSlice';
 import { useAppSelector } from '../hooks';
 import BackLink from './backLink';
@@ -29,18 +27,14 @@ const Fuel = () => {
       <form action="#">
         <div className="grid gap-4 grid-cols-2">
           <NumberCard
+            groupName="fuel"
             fieldName="numberOfAnimals"
             label="Diesel yearly use (litres)"
-            changeHandler={setDieselYearlyUse}
-            isValid={dieselYearlyUseValidationResult.isValid}
-            validationMessage={dieselYearlyUseValidationResult.reason}
           />
           <NumberCard
+            groupName="fuel"
             fieldName="avgLiveweight"
             label="Petrol yearly use (litres)"
-            changeHandler={setPetrolYearlyUse}
-            isValid={petrolYearlyUseValidationResult.isValid}
-            validationMessage={petrolYearlyUseValidationResult.reason}
           />
         </div>
       </form>
