@@ -24,6 +24,8 @@
 
 To help choose a state management style, I wanted to outline the data model. A lot of the focus is on forms and validation. It may end up that using a heavier form library could be the best match in the long run, for now I've chosen modern redux syntax to avoid getting stuck in a corner.
 
+UPDATE: OK, yes I did choose to use a form library over redux: [react-hook-form](https://react-hook-form.com). I knew there was a chance I'd end up at that point. You can see in the diff from the react-hook-form branch vs master at that point, there's a substantial reduction in the size of the code base. With validation bundled into redux, and implemented via selectors, there's a lot of dealing with individual methods for setting values, selecting them, and selecting their valid state too. I was considering storing or selecting something like a `Result` type, but there's just much less boilerplate needed if `react-hook-form` is storing input values, and checking if they are valid.
+
 Inputs:
 
 - Business activities
