@@ -1,17 +1,14 @@
-import { useMemo } from 'react';
-import { useAppSelector } from '../hooks';
-import { RootState } from '../store';
 import { formatNumber } from '../utils/format';
+import { Maybe } from '../utils/maybe';
 
 interface ResultProps {
   label: string;
-  selector: (state: RootState) => number | undefined;
+  maybeValue: Maybe;
 }
 
-const Result = ({ label, selector }: ResultProps) => {
-  const value = useAppSelector(selector);
-  const formatted = useMemo(() => formatNumber(value), [value]);
-  return <span>{`${label}: ${formatted}`}</span>;
+const Result = ({ label, maybeValue }: ResultProps) => {
+  const content = maybeValue.isValid ? formatNumber(maybeValue.value) : '-';
+  return <span>{`${label}: ${content}`}</span>;
 };
 
 export default Result;

@@ -28,12 +28,12 @@ const Fuel = () => {
         <div className="grid gap-4 grid-cols-2">
           <NumberCard
             groupName="fuel"
-            fieldName="numberOfAnimals"
+            fieldName="dieselYearlyUse"
             label="Diesel yearly use (litres)"
           />
           <NumberCard
             groupName="fuel"
-            fieldName="avgLiveweight"
+            fieldName="petrolYearlyUse"
             label="Petrol yearly use (litres)"
           />
         </div>
