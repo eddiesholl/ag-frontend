@@ -57,6 +57,8 @@ There was also a linter warning in App.tsx, and a runtime warning about missing 
 
 Before I started with raw html elements, I thought I should drop in a component library, so I could include it from the start. I've heard good things about tailwind but never had a chance to really try it out, I landed on [flowbite](https://flowbite.com/react/) from Figma as a set of tools to try out.
 
+UPDATE: OK after getting through most functionality, I've found this unnecessary. I've removed it from the project. I'm just using some tailwind utilities for styling, and don't need any external components.
+
 ## Project readiness checklist
 
 - [ ] `npm start` runs cleanly
