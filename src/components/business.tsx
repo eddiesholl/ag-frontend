@@ -4,13 +4,11 @@ import InputCard from './inputCard';
 const groupName = 'business';
 export const Business = () => {
   return (
-    <div className="py-8 px-4 mx-auto max-w-2xl lg:py-16">
-      <h4 className="mb-4 text-xl font-bold text-gray-900 dark:text-white">
-        Business activities
-      </h4>
+    <div>
+      <h4 className="mb-4">Business activities</h4>
       <form action="#">
         <div className="grid gap-4 grid-cols-2">
-          <span className="col-span-2 mb-4 text-xl font-bold text-gray-900 dark:text-white">
+          <span className="col-span-2 mb-4">
             When did these activities happen?
           </span>
           <InputCard

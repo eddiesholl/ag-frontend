@@ -42,18 +42,20 @@ export const Results = () => {
   );
 
   return (
-    <div style={{ width: '50%' }}>
-      <h3>Results</h3>
-      <div className="flex flex-col">
+    <div className="p-6" style={{ width: '50%' }}>
+      <h1>Results</h1>
+      <div className="flex flex-col pt-6">
         <Result
           label="Diesel yearly use (litres)"
           inputResult={dieselYearlyUse}
         />
         <Result
+          className="pb-2"
           label="Petrol yearly use (litres)"
           inputResult={petrolYearlyUse}
         />
         <Result
+          className="pb-6"
           label="Total animal weight (kg)"
           inputResult={totalAnimalWeight}
         />

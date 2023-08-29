@@ -16,7 +16,7 @@ const BackLink = ({ isValid }: BackLinkProps) => {
   return (
     <div className="flex flex-col">
       <Link onClick={onBack} onKeyUp={onBack} to="..">
-        Back
+        {'< Back'}
       </Link>
       {!isValid && <span className="text-red-500">{message}</span>}
     </div>

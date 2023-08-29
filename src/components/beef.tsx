@@ -24,7 +24,7 @@ const Beef = () => {
   return (
     <div>
       <BackLink isValid={isValid} />
-      <h4>Enter Beef info:</h4>
+      <h4 className="py-3">Enter Beef info:</h4>
       <form action="#">
         <div className="grid gap-4 grid-cols-2">
           <InputCard

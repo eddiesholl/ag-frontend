@@ -28,3 +28,21 @@ h3 {
   width: 100%;
   height: 100%;
 }
+
+@layer base {
+  h1 {
+    @apply text-5xl font-extrabold;
+  }
+  h2 {
+    @apply text-4xl;
+  }
+  h3 {
+    @apply text-3xl;
+  }
+  h4 {
+    @apply text-2xl;
+  }
+  a {
+    @apply font-medium text-blue-600 underline hover:no-underline;
+  }
+}

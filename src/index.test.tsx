@@ -27,7 +27,7 @@ test('displays results when inputs are valid', async () => {
 
   await user.click(
     screen.getByRole('link', {
-      name: 'Back',
+      name: '< Back',
     })
   );
 
@@ -94,7 +94,7 @@ test('displays results when inputs are invalid', async () => {
 
   await user.click(
     screen.getByRole('link', {
-      name: 'Back',
+      name: '< Back',
     })
   );
 

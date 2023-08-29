@@ -4,11 +4,12 @@ import { InputResult } from '../utils/result';
 interface ResultProps {
   label: string;
   inputResult: InputResult;
+  className?: string;
 }
 
-const Result = ({ label, inputResult }: ResultProps) => {
+const Result = ({ label, inputResult, className }: ResultProps) => {
   const content = inputResult.mapOr('-', formatNumber);
-  return <span>{`${label}: ${content}`}</span>;
+  return <span className={className}>{`${label}: ${content}`}</span>;
 };
 
 export default Result;

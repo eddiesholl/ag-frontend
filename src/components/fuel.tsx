@@ -12,7 +12,7 @@ const Fuel = () => {
   return (
     <div>
       <BackLink isValid={isValid} />
-      <h4>Enter Fuel info:</h4>
+      <h4 className="py-3">Enter Fuel info:</h4>
       <form action="#">
         <div className="grid gap-4 grid-cols-2">
           <InputCard
