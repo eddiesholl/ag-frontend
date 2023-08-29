@@ -61,10 +61,10 @@ UPDATE: OK after getting through most functionality, I've found this unnecessary
 
 ## Project readiness checklist
 
-- [ ] `npm start` runs cleanly
-- [ ] `npm test` completes cleanly
-- [ ] no linter warnings or errors
-- [ ] PROJECT.md is complete
+- [x] `npm start` runs cleanly
+- [x] `npm test` completes cleanly
+- [x] no linter warnings or errors
+- [x] PROJECT.md is complete
 
 ## Ongoing maintenance
 
@@ -102,6 +102,14 @@ const inputs: InputCategory[] = [{
 }]
 ```
 
-Taking it further, you could also attach the rules for displaying results ie rendering your inputs. The schema can become a library of emissions inputs, rules, and outputs. The UI is then just a projection over that schema, and is highly extensible.
+Taking it further, you could also attach the rules for displaying results ie transforming then rendering your inputs as results. The schema can become a library of emissions inputs, rules, and outputs. The UI is then just a projection over that schema, and is highly extensible.
 
 As the complexity of the rules grows, testing for correctness of rendering and calculations should be manageable, but domain expertise would be required to make sure the rules themselves are actually correct. That is, a bunch of rules stuck inside a repo will need to be carefully validated by someone with product input. Maybe you need some sort of simple CMS for managing all those rules, with change management, history etc.
+
+When the calculations become more complex, there will likely be a backend needed for the calculation. If that's the case, the app the architecture and the team structure would need to evolve. If you follow the idea of defining your inputs with a schema, you could leverage code generation, or at least a single source of truth document, to keep the 2 in sync. That is, all the inputs and the rules for processing them are defined in one place, and the frontend and backend are generated from that. This would be a good way to ensure the frontend and backend are in sync, and that the frontend is always up to date with the latest rules. You can then have dedicated backend and frontend teams that specialise in their own piece of the stack.
+
+The UI also needs to evolve when results are sent off to the backend for calculations. They results will be stale until the latest have been retrieved, so the UI will need to help the user understand this.
+
+## TODOs and revisits
+
+There is a warning when running `npm install` that the node engine version is not compatible with `true-myth`. The compilation style is different for each recent major version of this dependency, I've wasted enough time already trying to get it importing and compiling correctly, so I'm just going to leave it as is. There's also a warning when running `npm start` about failing to find valid source maps for `true-myth`, which is in the same category.
