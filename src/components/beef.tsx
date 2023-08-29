@@ -5,7 +5,7 @@ import BackLink from './backLink';
 
 const groupName = 'beef';
 
-const validateAvgLiveweight = (value: any, formValues: any) => {
+export const validateAvgLiveweight = (value: any, formValues: any) => {
   const numberOfAnimals = parseInt(formValues[groupName]?.numberOfAnimals);
 
   if (isFinite(numberOfAnimals) && numberOfAnimals > 0) {
